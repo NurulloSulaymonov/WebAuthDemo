@@ -11,4 +11,6 @@ public class DataContext:IdentityDbContext<User>
     {
     }
     
+    public DbSet<Student> Students { get; set; }
+    
 }

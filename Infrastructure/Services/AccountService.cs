@@ -52,11 +52,12 @@ public class AccountService
 
         return null;
     }
+    private string secret  = "this is my custom Secret key for authnetication";
 
     //Method to generate The Token
     private async Task<TokenDto> GenerateJwtToken(User user)
     {
-        var key = Encoding.UTF8.GetBytes(_configuration["Jwt:Key"]);
+        var key = Encoding.UTF8.GetBytes(secret);
         var securityKey = new SymmetricSecurityKey(key);
         var credentials = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256);
         var claims = new List<Claim>()

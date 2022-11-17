@@ -2,6 +2,7 @@ using System.Text;
 using Domain.Entities;
 using Infrastructure.Data;
 using Infrastructure.Serivices;
+using Infrastructure.Services;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
@@ -11,6 +12,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddScoped<AccountService>();
+builder.Services.AddScoped<IStudentService, StudentService>();
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
